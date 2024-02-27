@@ -1,0 +1,9 @@
+@import "./global/variables";
+
+.main-window {
+  width: 100%;
+  max-width: $max-width;
+  height: calc(100vh - 32px);
+  min-height: 700px;
+  background-color: #838383;
+}

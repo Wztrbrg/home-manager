@@ -1,0 +1,11 @@
+@import "./global/variables";
+
+.side-bar {
+  width: 20%;
+  min-width: 240px;
+  height: 100%;
+  border-right: 1px solid #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
