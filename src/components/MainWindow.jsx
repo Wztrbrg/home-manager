@@ -1,5 +1,5 @@
 import "../assets/style/mainwindow.scss"
-import SideBar from "./SideBar";
+import SideBar from "./sidebar/SideBar";
 
 function MainWindow () {
 

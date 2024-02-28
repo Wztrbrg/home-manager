@@ -1,0 +1,55 @@
+@import "../global/variables";
+
+.category-section {
+  width: 100%;
+  padding: 8px;
+
+  .category-nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .category-list:first-child {
+      border-bottom: 1px solid $light;
+      padding-top: 0;
+      padding-bottom: 8px;
+    }
+
+    .category-list {
+      width: 100%;
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 8px 0;
+
+      .category-item {
+        width: 100%;
+        font-size: 20px;
+        font-weight: 300;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-radius: 8px;
+        color: $text;
+
+        .category-icon {
+          width: 24px;
+          height: 24px;
+          border: 2px solid $primary;
+          border-radius: 200px;
+        }
+      }
+
+      .category-item:hover {
+        cursor: pointer;
+        background: $light;
+      }
+
+      .category-item.active {
+        background: $secondary;
+      }
+    }
+  }
+}

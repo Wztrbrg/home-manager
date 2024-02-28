@@ -5,5 +5,7 @@
   max-width: $max-width;
   height: calc(100vh - 32px);
   min-height: 700px;
-  background-color: #838383;
+  background-color: $bg;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px #5f1bf17b;
 }

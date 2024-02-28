@@ -6,7 +6,7 @@ html {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: $large-font;
+  font-family: $main-font;
 }
 
 .App {
@@ -16,5 +16,5 @@ html {
   justify-content: center;
   align-items: center;
   padding: 16px;
-  background-color: $text;
+  background-color: $outer-bg;
 }
