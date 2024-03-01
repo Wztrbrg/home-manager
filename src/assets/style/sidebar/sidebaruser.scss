@@ -17,14 +17,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // border: 2px solid black;
     gap: 8px;
 
     .user-img {
       width: 56px;
       height: 56px;
-      border: 2px solid $text;
+      // border: 2px solid $text;
       border-radius: 200px;
+      background-image: url(../../images/placeholder.png);
+      background-size: cover;
     }
     button {
       border: none;
