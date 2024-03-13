@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "../assets/style/mainwindow.scss";
+import TopNav from "./TopNav";
 import SideBar from "./sidebar/SideBar";
 import Display from "./display/Display";
 import Dashboard from "./sidebar/tabs/Dashboard";
@@ -16,6 +17,7 @@ function MainWindow () {
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <div className="main-window">
+        <TopNav />
         <SideBar />
         <Routes>
           <Route path="/" element={<Display />}>
