@@ -1,0 +1,209 @@
+@import "../../global/variables";
+
+.tasks-wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .tasks-header {
+    width: 100%;
+    height: 74px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background-color: $bg;
+    border-radius: 16px;
+
+    h2 {
+      font-size: $large-heading;
+      font-weight: 400;
+      color: $text;
+      margin-left: auto;
+    }
+
+    button {
+      margin-left: auto;
+    }
+  }
+
+  .modal {
+    width: 100%;
+    background-color: $bg;
+    padding: 8px 16px;
+    border-radius: 16px;
+
+    .modal-content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .modal-header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        .modal-heading {
+          font-size: $heading;
+          font-weight: 400;
+          color: $text;
+        }
+      }
+      .task-field-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 24px 48px;
+        gap: 48px;
+
+        .left {
+          display: flex;
+          flex-direction: column;
+          width: 50%;
+          max-width: 500px;
+          height: 100%;
+
+          .task-label {
+            font-size: $small-text;
+            font-weight: 500;
+            color: $text;
+            margin-bottom: 4px;
+          }
+
+          .task-title-field,
+          .task-desc-field {
+            border: none;
+            font-size: $small-text;
+            font-weight: 300;
+            color: $text-light;
+            background-color: $bg;
+            padding: 8px 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+          }
+
+          .task-title-field:focus,
+          .task-desc-field:focus {
+            outline: none;
+            background-color: $light;
+          }
+
+          textarea.task-desc-field {
+            resize: none;
+          }
+
+          .task-btn-container {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+          }
+        }
+
+        .v-divider {
+          box-sizing: content-box;
+          width: 1px;
+          height: auto;
+          background-color: $darkish-border;
+          border-right: 1px solid $white;
+        }
+
+        .right {
+          width: 50%;
+          max-width: 500px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          .info-heading {
+            color: $accent;
+            font-size: $small-text;
+            font-weight: 800;
+          }
+
+          .info-subheading {
+            color: $text;
+            font-size: $medium-text;
+            font-weight: 500;
+            line-height: 20px;
+          }
+
+          .info-p {
+            color: $text-light;
+            font-size: $small-text;
+            font-weight: 300;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  .task-container {
+    width: 100%;
+    height: calc(100% - 74px);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 16px;
+    padding: 8px;
+    overflow-y: auto;
+
+    .task-item {
+      position: relative;
+      flex-basis: 400px;
+      flex-grow: 9999;
+      height: 200px;
+      background-color: $light;
+      border-radius: 16px;
+      padding: 8px 16px;
+      overflow-y: auto;
+
+      .task-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: last baseline;
+
+        .task-title {
+          color: $text;
+          font-weight: 500;
+          font-size: $medium-text;
+        }
+
+        .task-date {
+          font-weight: 500;
+          color: $text-light;
+        }
+      }
+
+      .task-desc {
+        font-size: $small-text;
+        font-weight: 300;
+        color: $text-light;
+      }
+    }
+
+    .task-item::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .task-container::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .task-container::-webkit-scrollbar-track {
+    background: none;
+  }
+
+  .task-container::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: $light;
+  }
+}

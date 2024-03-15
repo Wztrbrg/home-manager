@@ -3,16 +3,20 @@ $max-width: 2160px;
 
 //Font settings
 $main-font: "Poppins", sans-serif;
+$large-heading: 28px;
 $heading: 24px;
-$medium-text: 20px;
+$large-text: 20px;
+$medium-text: 18px;
 $small-text: 16px;
 
 //Colors
-$text: #1a1a1a;
-$text-light: #efefef;
-$bg: #e9ecfb;
-$outer-bg: #efeefe;
-$light: #f8f9fe;
-$primary: #4342f6;
-$secondary: #f2f4ff;
-$accent: #2dcd92;
+$text: #373737;
+$text-light: #9295aa;
+$white: #f3f3f3;
+$bg: #ffffff82;
+$darkish-border: #45539c34;
+$outer-bg: #ffffff21;
+$light: #ffffffab;
+$primary: #9560f9;
+$secondary: #f2e7fc;
+$accent: #55cea3;

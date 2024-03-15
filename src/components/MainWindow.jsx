@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "../assets/style/mainwindow.scss";
-import TopNav from "./TopNav";
 import SideBar from "./sidebar/SideBar";
 import Display from "./display/Display";
 import Dashboard from "./sidebar/tabs/Dashboard";
@@ -17,19 +16,20 @@ function MainWindow () {
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <div className="main-window">
-        <TopNav />
-        <SideBar />
-        <Routes>
-          <Route path="/" element={<Display />}>
-            <Route index element={<Dashboard />} />
-            <Route path="tasks" element={<Tasks />} />
-            <Route path="inventory" element={<Inventory />} />
-            <Route path="economy" element={<Economy />} />
-            <Route path="family" element={<Family />} />
-            <Route path="profile" element={<Profile />} />
-            <Route path="settings" element={<Settings />} />
-          </Route>
-        </Routes>
+        <div className="content">
+          <SideBar />
+          <Routes>
+            <Route path="/" element={<Display />}>
+              <Route index element={<Dashboard />} />
+              <Route path="tasks" element={<Tasks />} />
+              <Route path="inventory" element={<Inventory />} />
+              <Route path="economy" element={<Economy />} />
+              <Route path="family" element={<Family />} />
+              <Route path="profile" element={<Profile />} />
+              <Route path="settings" element={<Settings />} />
+            </Route>
+          </Routes>
+        </div>
       </div>
     </Router>
   )
