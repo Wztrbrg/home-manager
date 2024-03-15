@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { getTasks, createTask } from "../../../api/api";
 import "../../../assets/style/sidebar/tabs/tasks.scss";
 
 
@@ -8,52 +9,27 @@ function Tasks() {
   const [titleField, setTitleField] = useState("");
   const [descField, setDescField] = useState("");
 
-  const [tasks, setTasks] = useState([
-    {
-      id: 0,
-      title: "test",
-      date: "2024-03-13",
-      desc: "content of said task",
-      done: false
-    },
-    {
-      id: 1,
-      title: "test2",
-      date: "2024-03-13",
-      desc: "content of said task",
-      done: false
-    },
-    {
-      id: 2,
-      title: "test3",
-      date: "2024-03-13",
-      desc: "content of said task",
-      done: false
-    },
-    {
-      id: 3,
-      title: "test4",
-      date: "2024-03-13",
-      desc: "content of said task",
-      done: false
-    },
-  ]);
+  const [tasks, setTasks] = useState([]);
 
-  const arrayItems = tasks.map((task => 
-    <div key={task.id} className="task-item">
-      <header className="task-header">
-        <h2 className="task-title">{task.title}</h2>
-        <h5 className="task-date">{task.date}</h5>
-      </header>
-      <p className="task-desc">{task.desc}</p>
-    </div>
-  ))
+  const fetchTasks = async () => {
+    try {
+      const res = await getTasks();
+      setTasks(res.data);
+    } catch (error) {
+      console.error("Error fetching tasks:", error.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchTasks();
+  }, []);
 
   const toggleNewTask = () => {
     setNewTaskOpen(!newTaskOpen)
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     if (titleField.trim() === '' || descField.trim() === '') {
       alert("Task title or description was not filled in correctly, please try again!");
       return;
@@ -65,9 +41,10 @@ function Tasks() {
       desc: descField,
       done: false
     };
-    setTasks([...tasks, newTask]);
+    let res = await createTask(newTask);
     setTitleField("");
     setDescField("");
+    fetchTasks();
   }
 
   const handleCancel = () => {
@@ -110,7 +87,15 @@ function Tasks() {
         </div>  
       )}
       <div className="task-container">
-        {arrayItems}
+        {tasks.map(task => (
+          <div key={task.id} className="task-item">
+            <header className="task-header">
+              <h2 className="task-title">{task.title}</h2>
+              <h5 className="task-date">{task.date}</h5>
+            </header>
+            <p className="task-desc">{task.desc}</p>
+          </div>
+        ))}
       </div>
     </div>
   )
