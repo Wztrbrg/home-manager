@@ -1,6 +1,15 @@
+/*
+
+Code for database handling including
+Create
+Read
+Update
+Delete
+
+*/
+
 import * as api from "../api/api.js";
 
-//Code for storing in database
 export const getTasks = async () => {
   try {
     const { data } = await api.getTasks();
