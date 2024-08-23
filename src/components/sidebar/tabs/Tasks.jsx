@@ -39,20 +39,11 @@ function Tasks() {
     },
   ]);
 
-  const arrayItems = tasks.map((task => 
-    <div key={task.id} className="task-item">
-      <header className="task-header">
-        <h2 className="task-title">{task.title}</h2>
-        <h5 className="task-date">{task.date}</h5>
-      </header>
-      <p className="task-desc">{task.desc}</p>
-    </div>
-  ))
-
+  
   const toggleNewTask = () => {
     setNewTaskOpen(!newTaskOpen)
   }
-
+  
   const handleSubmit = () => {
     if (titleField.trim() === '' || descField.trim() === '') {
       alert("Task title or description was not filled in correctly, please try again!");
@@ -69,11 +60,34 @@ function Tasks() {
     setTitleField("");
     setDescField("");
   }
-
+  
   const handleCancel = () => {
     setTitleField("");
     setDescField("");
   }
+  
+  const handleDelete = (id) => {
+    for (let i = 0; i < tasks.length; i++) {
+      if (tasks[i].id === id) {
+        tasks.splice(i, 1);
+        break;
+      }
+    }
+    setTasks([...tasks]);
+  }
+  
+  const arrayItems = tasks.map((task => 
+    <div key={task.id} className="task-item">
+      <header className="task-header">
+        <h2 className="task-title">{task.title}</h2>
+        <h5 className="task-date">{task.date}</h5>
+      </header>
+      <p className="task-desc">{task.desc}</p>
+      <div className="btn-container">
+        <button className="delete-btn" onClick={() => handleDelete(task.id)}>Delete</button>
+      </div>
+    </div>
+  ))
 
   return (
     <div className="tasks-wrapper">
